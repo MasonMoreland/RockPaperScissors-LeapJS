@@ -1,7 +1,31 @@
-doctype html
+doctype html 
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		//<!-- concatenated flow.js + ng-flow libraries -->
+		//script(src="ng-flow/dist/ng-flow-standalone.min.js")
+	body
+		div.navbar.navbar-inverse.navbar-fixed-top
+			div.navbar-inner
+				div.container
+
+					a(class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+
+					a(class="brand", href="/") Home
+					
+					div.nav-collapse.collapse
+						ul.nav
+							li.active
+								a(href="/rps") Rock Paper Scissors
+							li 
+								a(href="https://www.leapmotion.com/") Leap Motion
+							li
+								a(href="http://heracleia.uta.edu/") Heracleia
+		div.container
+			block content
