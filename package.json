@@ -12,6 +12,7 @@
     "express": "~4.13.1",
     "jade": "~1.11.0",
     "leapjs": "^0.6.4",
+    "leapjs-plugins": "^0.1.11",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "three": "^0.71.0"

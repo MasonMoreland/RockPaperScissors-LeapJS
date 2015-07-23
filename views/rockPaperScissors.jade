@@ -3,4 +3,19 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  script(src="javascripts/")
+  script.
+      (window.controller = new Leap.Controller({background: true}))
+      .use('playback', {
+      loop: false,
+      pauseHotkey: false,
+      pauseOnHand: false
+      })
+      .use('riggedHand')
+      .connect();
+        controls = new THREE.TrackballControls( window.controller.plugins.riggedHand.camera )
+        controller.on('frame', function(){
+          controls.update()
+        });
+        window.addEventListener( 'resize', function(){
+          controls.handleResize();
+        });
