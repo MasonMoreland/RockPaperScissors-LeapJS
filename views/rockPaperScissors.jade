@@ -1,21 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  script.
-      (window.controller = new Leap.Controller({background: true}))
-      .use('playback', {
-      loop: false,
-      pauseHotkey: false,
-      pauseOnHand: false
-      })
-      .use('riggedHand')
-      .connect();
-        controls = new THREE.TrackballControls( window.controller.plugins.riggedHand.camera )
-        controller.on('frame', function(){
-          controls.update()
-        });
-        window.addEventListener( 'resize', function(){
-          controls.handleResize();
-        });
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  //div(class="leapSect", id="HandSpace")
+  div(id="HandSpace")
+  script(src="javascripts/build/bundle.js")
+  div
+    p(id="point") null
+    p(id="choice") null
+    button(ng-click="alert('WARNING: The bacon button HAS been pressed.');") bacon
