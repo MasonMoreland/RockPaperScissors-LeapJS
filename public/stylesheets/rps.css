@@ -1,0 +1,37 @@
+
+canvas {
+    pointer-events: none;
+/*
+    width: 10%;
+    height: 10%;
+*/
+}
+
+canvas.leap-boneHand {
+    width: 100 !important;
+    height: 100 !important;
+}
+
+
+/*
+#HandCanvas
+{
+    width: 10%;
+    height: 10%;
+    top: 0;
+    left: 0;
+}
+*/
+
+/*
+Notes:
+position: fixed;
+width: 50%;
+height: 50%;
+top: 0;
+left: 0;
+
+
+
+
+*/

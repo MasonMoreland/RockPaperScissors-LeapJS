@@ -3,46 +3,8 @@ body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+*/
 
 a {
     color: #00B7FF;
 }
-*/
-
-background{
- color: bisque;   
-}
-
-canvas {
-    pointer-events: none;
-}
-
-/*
-.leapSect {
-    width: 25%;
-    height: 25%;
-    top: 0;
-    left: 0;
-}
-*/
-
-#HandSpace
-{
-    width: 25%;
-    height: 25%;
-    top: 0;
-    left: 0;
-}
-
-/*
-Notes:
-position: fixed;
-width: 50%;
-height: 50%;
-top: 0;
-left: 0;
-
-
-
-
-*/
