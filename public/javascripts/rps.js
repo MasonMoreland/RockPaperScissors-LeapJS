@@ -1,12 +1,12 @@
 //var three = require("three");
 //var leapjs = require("leapjs");
 var leapjsPlugins = require("leapjs-plugins");
-var leapController = new Leap.Controller();
+var leapController1 = new Leap.Controller();
+var leapController2 = new Leap.Controller();
 
-leapController
+leapController1
     .connect()
     .use('boneHand', {
-        //scene: undefined,
         targetEl: document.getElementById("HandCanvas"),
         arm: true,
         useAllPlugins: true
@@ -20,25 +20,35 @@ leapController
         document.getElementById("choice").innerText = "You are showing: " + choice;
     })
     .on('handFound', function(hand) {
-//        document.querySelector('canvas').style.height = "100px !important"
-//        document.querySelector('canvas').style.width = "100px !important"
+        onHandFound(hand);
+    })
+
+leapController2
+    .use('boneHand', {
+        targetEl: document.getElementById("OtherHandCanvas"),
+        arm: false
+    })
+    .use('playback', {
+        recording: 'recordings/demoMovingHand.json.lz' //,
+            //requiredProtocolVersion: 6,
+            //pauseOnHand: true
     })
 
 
-function setupGame()
-{
-    canvasResize(200, 200); //This will NOT persist through a window resize
-    
+function setupGame() {
+    canvasResize(leapController1, 200, 200); //This will NOT persist through a window resize
+    canvasResize(leapController2, 300, 300); //This will NOT persist through a window resize
 }
 
-function canvasResize(width, height)
-{
-    leapController.plugins.boneHand.camera.aspect = width / height;
-    leapController.plugins.boneHand.camera.updateProjectionMatrix();
-    leapController.plugins.boneHand.renderer.setSize(width, height);
+function onHandFound(hand) {
+    console.log("Hand Found.");
 }
 
-setupGame();
+function canvasResize(controller, width, height) {
+    controller.plugins.boneHand.camera.aspect = width / height;
+    controller.plugins.boneHand.camera.updateProjectionMatrix();
+    controller.plugins.boneHand.renderer.setSize(width, height);
+}
 
 function getExtendedFingers(frame) {
     if (!(frame && frame.hands.length > 0)) {
@@ -69,3 +79,7 @@ function getPose(extendedFingers) {
     //RPS Detection end
     return choice;
 }
+
+
+setupGame();
+controller.plugins.playback.player.play();
