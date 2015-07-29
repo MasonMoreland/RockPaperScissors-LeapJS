@@ -29,9 +29,7 @@ leapController2
         arm: false
     })
     .use('playback', {
-        recording: 'recordings/demoMovingHand.json.lz' //,
-            //requiredProtocolVersion: 6,
-            //pauseOnHand: true
+        recording: 'recordings/demoMovingHand.json.lz'
     })
 
 
