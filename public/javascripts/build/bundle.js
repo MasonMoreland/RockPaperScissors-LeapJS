@@ -46570,16 +46570,22 @@ leapController
 //        document.querySelector('canvas').style.height = "100px !important"
 //        document.querySelector('canvas').style.width = "100px !important"
     })
-//    .on('handLost', function(hand) {
-//        if (Leap.loopController.frame(0).hands.length === 0) {
-//            document.querySelector('canvas').style.display = 'none';
-//        }
-//    });
 
-//three.renderer.setSize( 100, 200 );
 
-leapController.plugins.boneHand.renderer.setSize(300, 300);
+function setupGame()
+{
+    canvasResize(200, 200); //This will NOT persist through a window resize
+    
+}
 
+function canvasResize(width, height)
+{
+    leapController.plugins.boneHand.camera.aspect = width / height;
+    leapController.plugins.boneHand.camera.updateProjectionMatrix();
+    leapController.plugins.boneHand.renderer.setSize(width, height);
+}
+
+setupGame();
 
 function getExtendedFingers(frame) {
     if (!(frame && frame.hands.length > 0)) {
