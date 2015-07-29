@@ -25,9 +25,16 @@ html
 				.col-md-12.text-center
 					h1 you win mothafucka
 			.row
-				.col-md-4
-					//img(src= "http://reactionimage.org/img/gallery/1886670033.jpg", style="width: 100%; height: auto; max-width: 100%;")
-				.col-md-4.text-center
-					block content
-				.col-md-4
-					//img(src= "http://reactionimage.org/img/gallery/1886670033.jpg", style="width: 100%; height: auto; max-width: 100%;")
+				.col-md-6.text-center(style="background-color: red; padding: 10px; height: 512px")
+					span(id="HandCanvas")
+					
+				.col-md-6.text-center(style="background-color: blue; padding: 10px; height: 512px")
+					//span(id="HandCanvas")
+					span(id="OtherHandCanvas")
+					
+			.row
+				.col-md-12.text-center
+					p(id="point") null
+					p(id="choice") null
+					button(ng-click="alert('WARNING: The bacon button HAS been pressed.');") bacon
+script(src="javascripts/build/bundle.js")
